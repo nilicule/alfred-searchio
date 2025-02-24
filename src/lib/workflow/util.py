@@ -27,21 +27,21 @@ import time
 
 # AppleScript to call an External Trigger in Alfred
 AS_TRIGGER = """
-tell application "Alfred 3"
+tell application "Alfred"
 run trigger "{name}" in workflow "{bundleid}" {arg}
 end tell
 """
 
 # AppleScript to save a variable in info.plist
 AS_CONFIG_SET = """
-tell application "Alfred 3"
+tell application "Alfred"
 set configuration "{name}" to value "{value}" in workflow "{bundleid}" {export}
 end tell
 """
 
 # AppleScript to remove a variable from info.plist
 AS_CONFIG_UNSET = """
-tell application "Alfred 3"
+tell application "Alfred"
 remove configuration "{name}" in workflow "{bundleid}"
 end tell
 """
@@ -130,10 +130,10 @@ def applescriptify(s):
     Replaces ``"`` with `"& quote &"`. Use this function if you want
 
     to insert a string into an AppleScript script:
-        >>> script = 'tell application "Alfred 3" to search "{}"'
+        >>> script = 'tell application "Alfred" to search "{}"'
         >>> query = 'g "python" test'
         >>> script.format(applescriptify(query))
-        'tell application "Alfred 3" to search "g " & quote & "python" & quote & "test"'
+        'tell application "Alfred" to search "g " & quote & "python" & quote & "test"'
 
     Args:
         s (unicode): Unicode string to escape.
