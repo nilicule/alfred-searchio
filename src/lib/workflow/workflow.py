@@ -2325,7 +2325,7 @@ class Workflow(object):
             update_script = os.path.join(os.path.dirname(__file__),
                                          b'update.py')
 
-            cmd = ['/usr/bin/python', update_script, 'check', github_slug,
+            cmd = ['/usr/bin/env', 'python', update_script, 'check', github_slug,
                    version]
 
             if self.prereleases:
@@ -2365,7 +2365,7 @@ class Workflow(object):
         update_script = os.path.join(os.path.dirname(__file__),
                                      b'update.py')
 
-        cmd = ['/usr/bin/python', update_script, 'install', github_slug,
+        cmd = ['/usr/bin/env', 'python', update_script, 'install', github_slug,
                version]
 
         if self.prereleases:
